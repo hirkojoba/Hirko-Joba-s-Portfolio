@@ -1,0 +1,225 @@
+/* ===================================
+   HERO SECTION STYLES - Minimalist & Bold
+   =================================== */
+
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-2xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Stack Target for Project Cards - Top Right */
+.stackTarget {
+  position: absolute;
+  top: 100px;
+  right: 250px;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Animated gradient orbs */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -15%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+  filter: blur(80px);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite reverse;
+  filter: blur(80px);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -40px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Location Badge */
+.locationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 2rem;
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-success);
+  border-radius: 50%;
+  position: relative;
+  animation: pulsate 2s ease-in-out infinite;
+}
+
+.pulse::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--accent-success);
+  opacity: 0.3;
+  animation: ripple 2s ease-in-out infinite;
+}
+
+@keyframes pulsate {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.locationText {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* Main Headline - Large & Bold */
+.headline {
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--spacing-lg);
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 50%, var(--accent-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+  white-space: nowrap;
+}
+
+/* Description */
+.description {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 700px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* CTA Buttons */
+.cta {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-3xl);
+  }
+
+  .stackTarget {
+    display: none; /* Hide stack target on mobile */
+  }
+
+  .headline {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+
+  .cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: clamp(2rem, 12vw, 3rem);
+    letter-spacing: -0.02em;
+  }
+
+  .description {
+    font-size: 1.0625rem;
+  }
+
+  .locationBadge {
+    padding: 0.4rem 0.875rem;
+  }
+
+  .locationText {
+    font-size: 0.875rem;
+  }
+}
