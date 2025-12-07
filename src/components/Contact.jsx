@@ -70,7 +70,7 @@ export default function Contact() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/hirko-joba-8204a8312/"
+              href="https://www.linkedin.com/in/hirko-joba/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.iconLink}
