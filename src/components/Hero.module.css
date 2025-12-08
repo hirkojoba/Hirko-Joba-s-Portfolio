@@ -188,6 +188,7 @@
 
   .headline {
     font-size: clamp(2.5rem, 10vw, 4rem);
+    white-space: normal;
   }
 
   .description {
