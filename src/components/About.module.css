@@ -136,11 +136,6 @@
   margin: 0;
 }
 
-.text p:first-child {
-  font-size: 1.125rem;
-  color: var(--text-primary);
-}
-
 /* ===== RESPONSIVE DESIGN ===== */
 
 @media (max-width: 767px) {
